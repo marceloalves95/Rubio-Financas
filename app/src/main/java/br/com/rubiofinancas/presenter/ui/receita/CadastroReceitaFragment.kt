@@ -30,11 +30,11 @@ class CadastroReceitaFragment : BaseFragment() {
     private val binding get() = _binding!!
     lateinit var application: Application
     private lateinit var dataHoje: String
-    lateinit var item: String
-    lateinit var categoria: String
-    lateinit var valor: String
-    lateinit var mes: String
-    lateinit var ano: String
+    private lateinit var item: String
+    private lateinit var categoria: String
+    private lateinit var valor: String
+    private lateinit var mes: String
+    private lateinit var ano: String
 
     private val args by navArgs<CadastroReceitaFragmentArgs>()
 
@@ -43,11 +43,8 @@ class CadastroReceitaFragment : BaseFragment() {
         ViewModelProvider(this, ReceitaViewModelFactory(application)).get(ReceitaViewModel::class.java)
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-    override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View {
         application = requireActivity().application!!
         (activity as MainActivity).supportActionBar?.setTitle(R.string.menu_cadastro_receita)
 
@@ -56,76 +53,16 @@ class CadastroReceitaFragment : BaseFragment() {
 
         initCampos()
 
-
         return view
 
     }
 
-
-
-    fun initDatas() {
-
-        val localDate = LocalDate.now()
-        val mes = localDate.month
-        anoCorrente = localDate.year
-
-        val local = Locale("pt", "BR")
-        //Aqui ele formata o mês setado correspondente
-        val mesFormatado = DateTimeFormatter.ofPattern("MMMM", local)
-
-        //Aqui ele transforma a primeira letra do mês em maiuscula
-        mesCompleto = mesFormatado.format(mes).capitalize(Locale.ROOT)
-
-        val dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
-        diaHoje = dataFormatada.format(localDate)
-
-        binding.dataHoje.setText(diaHoje)
-        binding.mes.setText(mesCompleto)
-        binding.ano.setText(anoCorrente.toString())
-
-
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
-    fun initEditText(){
-
-        dataHoje = binding.dataHoje.editableText.toString().trim()
-        item = binding.item.editableText.toString().trim()
-        categoria = binding.categoria.editableText.toString().trim()
-        valor = binding.valor.editableText.toString().trim()
-        mes = binding.mes.editableText.toString().trim()
-        ano = binding.ano.editableText.toString().trim()
-
-    }
-
-    fun salvar() {
-
-        initEditText()
-
-        if (validarCampos()) {
-
-            val receita = Receita(0, dataHoje, item, categoria, valor.toDouble(), mes, ano.toInt(), false)
-            viewModel.adicionarReceita(receita)
-            mensagemAtualizada("Receita cadastrada com sucesso")
-            findNavController().navigate(R.id.action_cadastro_receita_to_nav_receita)
-
-        }
-
-    }
-
-    fun atualizar() {
-
-        if (validarCampos()){
-
-            val receita = Receita(args.id, dataHoje, item, categoria, valor.toDouble(), mes, ano.toInt(), false)
-            viewModel.atualizarReceita(receita)
-            mensagemAtualizada("Receita atualizada com sucesso")
-            findNavController().navigate(R.id.action_cadastro_receita_to_nav_receita)
-
-        }
-
-    }
-
-    fun initCampos() {
+    private fun initCampos() {
 
         if (args.receita == null) {
 
@@ -164,14 +101,70 @@ class CadastroReceitaFragment : BaseFragment() {
         }
 
     }
+    private fun initDatas() {
 
+        val localDate = LocalDate.now()
+        val mes = localDate.month
+        anoCorrente = localDate.year
+
+        val local = Locale("pt", "BR")
+        //Aqui ele formata o mês setado correspondente
+        val mesFormatado = DateTimeFormatter.ofPattern("MMMM", local)
+
+        //Aqui ele transforma a primeira letra do mês em maiuscula
+        mesCompleto = mesFormatado.format(mes).capitalize(Locale.ROOT)
+
+        val dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
+        diaHoje = dataFormatada.format(localDate)
+
+        binding.dataHoje.setText(diaHoje)
+        binding.mes.setText(mesCompleto)
+        binding.ano.setText(anoCorrente.toString())
+
+
+    }
+    private fun initEditText(){
+
+        dataHoje = binding.dataHoje.editableText.toString().trim()
+        item = binding.item.editableText.toString().trim()
+        categoria = binding.categoria.editableText.toString().trim()
+        valor = binding.valor.editableText.toString().trim()
+        mes = binding.mes.editableText.toString().trim()
+        ano = binding.ano.editableText.toString().trim()
+
+    }
+    private fun salvar() {
+
+        initEditText()
+
+        if (validarCampos()) {
+
+            val receita = Receita(0, dataHoje, item, categoria, valor.toDouble(), mes, ano.toInt(), false)
+            viewModel.adicionarReceita(receita)
+            mensagemAtualizada("Receita cadastrada com sucesso")
+            findNavController().navigate(R.id.action_cadastro_receita_to_nav_receita)
+
+        }
+
+    }
+    private fun atualizar() {
+
+        if (validarCampos()){
+
+            val receita = Receita(args.id, dataHoje, item, categoria, valor.toDouble(), mes, ano.toInt(), false)
+            viewModel.atualizarReceita(receita)
+            mensagemAtualizada("Receita atualizada com sucesso")
+            findNavController().navigate(R.id.action_cadastro_receita_to_nav_receita)
+
+        }
+
+    }
     private fun mensagemAtualizada(mensagem: String) {
 
         Snackbar.make(requireView(), mensagem, Snackbar.LENGTH_SHORT).show()
 
 
     }
-
     private fun validarCampos(): Boolean {
 
         var validador = true
@@ -240,10 +233,7 @@ class CadastroReceitaFragment : BaseFragment() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
+
 
 
 }
