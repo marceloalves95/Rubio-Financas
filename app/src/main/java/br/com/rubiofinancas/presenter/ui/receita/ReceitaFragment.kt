@@ -53,9 +53,6 @@ class ReceitaFragment : Fragment(){
 
         }
 
-
-
-
         return view
     }
 
