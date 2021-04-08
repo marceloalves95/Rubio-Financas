@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".presenter.ui.receita.CadastroReceitaFragment">
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/campo_item"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
