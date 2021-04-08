@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Rubio Finanças</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_receita">Receita</string>
+    <string name="menu_despesa">Despesa</string>
+    <string name="menu_cadastro_receita">Cadastro de Receitas</string>
+    <string name="item">Item</string>
+    <string name="categoria">Categoria</string>
+    <string name="valor">Valor</string>
+    <string name="mes">Mês</string>
+    <string name="ano">Ano</string>
+    <string name="cadastrar_receita">Cadastrar Receita</string>
+    <string name="atualizacao_receita">Atualizar Receita</string>
+    <string name="atualizar_receita">Atualização de Receitas</string>
+    <string name="todo">TODO</string>
+    <string name="delete">Deletar</string>
+    <string name="tipo_pagamento">Tipo de Pagamento</string>
+    <string name="cadastrar_despesa">Cadastrar Despesa</string>
+    <string name="menu_cadastro_despesa">Cadastro de Despesa</string>
+    <string name="anterior">Anterior</string>
+    <string name="proximo">Próximo</string>
+    <string name="data_hoje">Data de Hoje</string>
+    <string name="maior_receita">Maior receita do mês</string>
+    <string name="menor_receita">Menor receita do mês</string>
+    <string name="media_receita">Média de receita do mês</string>
+    <array name="pagamento">
+        <item>Dinheiro</item>
+        <item>Cartão de Crédito</item>
+        <item>Cartão de Débito</item>
+    </array>
+    <string name="dinheiro">R$</string>
+    <string name="deletar_receitas">Deletar Receitas</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_receita"
+            android:icon="@drawable/ic_saco_dinheiro"
+            android:title="@string/menu_receita" />
+        <item
+            android:id="@+id/nav_despesa"
+            android:icon="@drawable/ic_despesa"
+            android:title="@string/menu_despesa" />
+    </group>
+   
+</menu>
