@@ -2,9 +2,11 @@ package br.com.rubiofinancas.presenter.adapters
 
 import android.util.SparseBooleanArray
 import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.core.util.isNotEmpty
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import br.com.rubiofinancas.R
 import br.com.rubiofinancas.data.domain.Receita
 import br.com.rubiofinancas.databinding.ReceitaAdapterBinding
 import br.com.rubiofinancas.presenter.ui.receita.ReceitaArgs
@@ -40,6 +42,7 @@ class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:Rece
 
                 onItemLongClick?.invoke(adapterPosition)
 
+
                 return@setOnLongClickListener true
 
 
@@ -60,6 +63,14 @@ class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:Rece
 
 
             itemBinding.cardView.isChecked = receita.selected
+
+            if (itemBinding.cardView.isChecked) itemBinding.cardView.strokeColor = ContextCompat.getColor(receitaFragment.requireContext(), R.color.purple_200)
+            else itemBinding.cardView.strokeColor = ContextCompat.getColor(receitaFragment.requireContext(), R.color.white)
+
+
+
+
+
 
 
 

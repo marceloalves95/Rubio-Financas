@@ -21,6 +21,7 @@
         android:checkable="true"
         android:clickable="true"
         android:focusable="true"
+        app:strokeWidth="2dp"
         app:cardBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

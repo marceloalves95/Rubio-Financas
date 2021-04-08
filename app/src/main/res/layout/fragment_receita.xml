@@ -17,6 +17,7 @@
         app:cardElevation="2dp"
         app:contentPadding="2dp"
         app:strokeColor="@color/black"
+        app:strokeWidth="2dp"
         app:cardBackgroundColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
