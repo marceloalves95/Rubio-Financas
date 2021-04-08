@@ -104,7 +104,6 @@ class ReceitaFragment : Fragment(){
 
     fun atualizarLayout() {
 
-
         viewModel.atualizarLista()
         viewModel.listAll.observe(viewLifecycleOwner, {
 
