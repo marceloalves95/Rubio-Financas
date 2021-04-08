@@ -28,7 +28,6 @@ class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:Rece
 
     inner class ReceitaViewHolder(private val itemBinding: ReceitaAdapterBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 
-
         fun bind(receita: Receita) {
 
             val receitaMes = initDatas(receita.data_hoje)
@@ -66,7 +65,6 @@ class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:Rece
 
         }
 
-
         fun initDatas(data: String): String {
 
             val local = Locale("pt", "BR")
@@ -84,9 +82,7 @@ class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:Rece
 
         }
 
-
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitaViewHolder {
 
@@ -103,7 +99,6 @@ class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:Rece
     }
 
     override fun getItemCount(): Int = receita.size
-
 
     var onItemClick: ((Int) -> Unit)? = null
     var onItemLongClick: ((Int) -> Unit)? = null
