@@ -19,7 +19,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-
 class ReceitaFragment : Fragment(){
 
     private lateinit var adapter: ReceitaAdapter
@@ -104,7 +103,6 @@ class ReceitaFragment : Fragment(){
     }
 
     fun atualizarLayout() {
-
 
         viewModel.atualizarLista()
         viewModel.listAll.observe(viewLifecycleOwner, {
