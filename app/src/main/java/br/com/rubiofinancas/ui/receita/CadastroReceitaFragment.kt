@@ -1,22 +1,19 @@
-package br.com.rubiofinancas.presenter.ui.receita
+package br.com.rubiofinancas.ui.receita
 
-import android.app.Application
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import br.com.rubiofinancas.R
 import br.com.rubiofinancas.data.domain.Receita
 import br.com.rubiofinancas.databinding.FragmentCadastroReceitaBinding
-import br.com.rubiofinancas.framework.viewmodel.ReceitaViewModel
-import br.com.rubiofinancas.framework.viewmodel.ReceitaViewModelFactory
-import br.com.rubiofinancas.presenter.ui.base.BaseFragment
-import br.com.rubiofinancas.presenter.ui.main.MainActivity
+import br.com.rubiofinancas.ui.base.BaseFragment
+import br.com.rubiofinancas.ui.main.MainActivity
+import br.com.rubiofinancas.viewmodel.ReceitaViewModel
 import com.google.android.material.snackbar.Snackbar
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -28,7 +25,6 @@ class CadastroReceitaFragment : BaseFragment() {
     lateinit var diaHoje: String
     var anoCorrente: Int = 0
     private val binding get() = _binding!!
-    lateinit var application: Application
     private lateinit var dataHoje: String
     private lateinit var item: String
     private lateinit var categoria: String
@@ -38,22 +34,17 @@ class CadastroReceitaFragment : BaseFragment() {
 
     private val args by navArgs<CadastroReceitaFragmentArgs>()
 
-    val viewModel by lazy {
-
-        ViewModelProvider(this, ReceitaViewModelFactory(application)).get(ReceitaViewModel::class.java)
-    }
+    private val viewModel:ReceitaViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-        application = requireActivity().application!!
         (activity as MainActivity).supportActionBar?.setTitle(R.string.menu_cadastro_receita)
 
         _binding = FragmentCadastroReceitaBinding.inflate(layoutInflater, container, false)
-        val view = binding.root
 
         initCampos()
 
-        return view
+        return binding.root
 
     }
 
@@ -61,6 +52,7 @@ class CadastroReceitaFragment : BaseFragment() {
         super.onDestroy()
         _binding = null
     }
+
 
     private fun initCampos() {
 
@@ -100,7 +92,10 @@ class CadastroReceitaFragment : BaseFragment() {
 
         }
 
+
+
     }
+
     private fun initDatas() {
 
         val localDate = LocalDate.now()
@@ -147,6 +142,7 @@ class CadastroReceitaFragment : BaseFragment() {
         }
 
     }
+
     private fun atualizar() {
 
         if (validarCampos()){
@@ -159,6 +155,8 @@ class CadastroReceitaFragment : BaseFragment() {
         }
 
     }
+
+
     private fun mensagemAtualizada(mensagem: String) {
 
         Snackbar.make(requireView(), mensagem, Snackbar.LENGTH_SHORT).show()

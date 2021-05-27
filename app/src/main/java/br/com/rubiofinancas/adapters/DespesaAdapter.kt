@@ -1,4 +1,4 @@
-package br.com.rubiofinancas.presenter.adapters
+package br.com.rubiofinancas.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

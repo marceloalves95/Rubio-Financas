@@ -14,14 +14,8 @@ import java.math.RoundingMode
  * @author Marcelo Alves
  * 15/03/2021
  */
-class ReceitaRepository(application: Application) {
+class ReceitaRepository(private val receitaDao:ReceitaDao) {
 
-    private val receitaDao:ReceitaDao
-
-    init {
-        val database = AppDatabase.getDatabase(application)
-        receitaDao = database.receitaDao()
-    }
 
     suspend fun getAll():MutableList<Receita>{
 
@@ -59,8 +53,6 @@ class ReceitaRepository(application: Application) {
     suspend fun deleteAll(id: MutableList<Long>){
 
         receitaDao.deleteAll(id)
-
-        Log.d("Id3", id.toString())
 
     }
 

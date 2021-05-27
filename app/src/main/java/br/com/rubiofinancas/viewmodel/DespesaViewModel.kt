@@ -1,4 +1,4 @@
-package br.com.rubiofinancas.framework.viewmodel
+package br.com.rubiofinancas.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

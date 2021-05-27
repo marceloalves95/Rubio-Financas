@@ -1,4 +1,4 @@
-package br.com.rubiofinancas.presenter.ui.base
+package br.com.rubiofinancas.ui.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

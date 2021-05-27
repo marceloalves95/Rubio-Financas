@@ -1,4 +1,4 @@
-package br.com.rubiofinancas.presenter.ui.despesa
+package br.com.rubiofinancas.ui.despesa
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import br.com.rubiofinancas.R
 import br.com.rubiofinancas.databinding.FragmentCadastroDespesaBinding
-import br.com.rubiofinancas.presenter.ui.base.BaseFragment
+import br.com.rubiofinancas.ui.base.BaseFragment
 
 class CadastroDespesaFragment : BaseFragment() {
 
