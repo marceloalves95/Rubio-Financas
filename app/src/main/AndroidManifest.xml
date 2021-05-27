@@ -3,6 +3,7 @@
     package="br.com.rubiofinancas">
 
     <application
+        android:name="br.com.rubiofinancas.application.Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RubioFinanças">
         <activity
-            android:name=".presenter.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.RubioFinanças.NoActionBar">
             <intent-filter>

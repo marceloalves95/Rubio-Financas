@@ -1,4 +1,4 @@
-package br.com.rubiofinancas.presenter.ui.despesa
+package br.com.rubiofinancas.ui.despesa
 
 import android.app.Application
 import android.os.Bundle
@@ -11,12 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.rubiofinancas.R
 import br.com.rubiofinancas.databinding.FragmentDespesaBinding
-import br.com.rubiofinancas.framework.viewmodel.DespesaViewModel
-import br.com.rubiofinancas.framework.viewmodel.DespesaViewModelFactory
-import br.com.rubiofinancas.framework.viewmodel.ReceitaViewModel
-import br.com.rubiofinancas.framework.viewmodel.ReceitaViewModelFactory
-import br.com.rubiofinancas.presenter.adapters.DespesaAdapter
-import br.com.rubiofinancas.presenter.adapters.ReceitaAdapter
+import br.com.rubiofinancas.viewmodel.DespesaViewModel
+import br.com.rubiofinancas.viewmodel.DespesaViewModelFactory
+import br.com.rubiofinancas.adapters.DespesaAdapter
 
 class DespesaFragment : Fragment() {
 
@@ -36,7 +33,7 @@ class DespesaFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-
+        application = requireActivity().application!!
         _binding = FragmentDespesaBinding.inflate(inflater, container, false)
 
         atualizarLayout()

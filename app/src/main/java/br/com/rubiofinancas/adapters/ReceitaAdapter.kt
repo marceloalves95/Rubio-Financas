@@ -1,4 +1,4 @@
-package br.com.rubiofinancas.presenter.adapters
+package br.com.rubiofinancas.adapters
 
 import android.util.SparseBooleanArray
 import android.view.*
@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.rubiofinancas.R
 import br.com.rubiofinancas.data.domain.Receita
 import br.com.rubiofinancas.databinding.ReceitaAdapterBinding
-import br.com.rubiofinancas.presenter.ui.receita.ReceitaArgs
-import br.com.rubiofinancas.presenter.ui.receita.ReceitaFragment
-import br.com.rubiofinancas.presenter.ui.receita.ReceitaFragmentDirections
+import br.com.rubiofinancas.ui.receita.ReceitaArgs
+import br.com.rubiofinancas.ui.receita.ReceitaFragment
+import br.com.rubiofinancas.ui.receita.ReceitaFragmentDirections
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -23,7 +23,7 @@ import java.util.*
  */
 
 
-class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:ReceitaFragment) : RecyclerView.Adapter<ReceitaAdapter.ReceitaViewHolder>() {
+class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment: ReceitaFragment) : RecyclerView.Adapter<ReceitaAdapter.ReceitaViewHolder>() {
 
     val selectedItems = SparseBooleanArray()
     private var currentSelectedPos = -1
@@ -66,13 +66,6 @@ class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:Rece
 
             if (itemBinding.cardView.isChecked) itemBinding.cardView.strokeColor = ContextCompat.getColor(receitaFragment.requireContext(), R.color.purple_200)
             else itemBinding.cardView.strokeColor = ContextCompat.getColor(receitaFragment.requireContext(), R.color.white)
-
-
-
-
-
-
-
 
         }
 
@@ -142,16 +135,21 @@ class ReceitaAdapter(val receita: MutableList<Receita>, val receitaFragment:Rece
 
     }
 
+
     private fun argumentosReceita(receita: Receita){
 
         val receitaArgs = ReceitaArgs(receita.data_hoje, receita.item, receita.categoria, receita.valor, receita.mes,receita.ano)
         val id = receita.id
+
+
         val action = ReceitaFragmentDirections.actionNavReceitaToCadastroReceita(receitaArgs, id)
 
         receitaFragment.findNavController().navigate(action)
 
 
     }
+
+
 
 
 }

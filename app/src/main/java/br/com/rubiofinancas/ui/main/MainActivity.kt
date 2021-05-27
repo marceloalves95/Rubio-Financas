@@ -1,18 +1,19 @@
-package br.com.rubiofinancas.presenter.ui.main
+package br.com.rubiofinancas.ui.main
 
 import android.os.Bundle
-import android.view.Menu
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import br.com.rubiofinancas.R
+import br.com.rubiofinancas.data.db.AppDatabase
 import br.com.rubiofinancas.databinding.ActivityMainBinding
+import com.google.android.material.navigation.NavigationView
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 

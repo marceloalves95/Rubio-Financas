@@ -22,6 +22,8 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
 
+        private const val NOME_BANCO_DE_DADOS = "financas.db"
+
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -36,7 +38,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
-                        "financas.db"
+                        NOME_BANCO_DE_DADOS
                 ).fallbackToDestructiveMigration()
                         .build()
                 INSTANCE = instance

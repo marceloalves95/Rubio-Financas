@@ -1,12 +1,9 @@
-package br.com.rubiofinancas.framework.viewmodel
+package br.com.rubiofinancas.viewmodel
 
 import android.app.Application
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import br.com.rubiofinancas.data.domain.Receita
 import br.com.rubiofinancas.data.repository.ReceitaRepository
 import kotlinx.coroutines.launch
@@ -19,9 +16,8 @@ import java.math.RoundingMode
  * @author Marcelo Alves
  * 15/03/2021
  */
-class ReceitaViewModel(application: Application):AndroidViewModel(application){
+class ReceitaViewModel(private val repository:ReceitaRepository):ViewModel(){
 
-    private val repository = ReceitaRepository(application)
     val listAll = MutableLiveData<MutableList<Receita>>()
     val maxValor = MutableLiveData<Double>()
     val minValor = MutableLiveData<Double>()

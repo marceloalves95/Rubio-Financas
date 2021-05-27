@@ -7,22 +7,17 @@
 
     <fragment
         android:id="@+id/nav_receita"
-        android:name="br.com.rubiofinancas.presenter.ui.receita.ReceitaFragment"
+        android:name="br.com.rubiofinancas.ui.receita.ReceitaFragment"
         android:label="@string/menu_receita"
         tools:layout="@layout/fragment_receita" >
         <action
             android:id="@+id/action_nav_receita_to_cadastro_receita"
-            app:destination="@id/cadastro_receita"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-
+            app:destination="@id/cadastro_receita" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_despesa"
-        android:name="br.com.rubiofinancas.presenter.ui.despesa.DespesaFragment"
+        android:name="br.com.rubiofinancas.ui.despesa.DespesaFragment"
         android:label="@string/menu_despesa"
         tools:layout="@layout/fragment_despesa" >
         <action
@@ -33,30 +28,27 @@
 
     <fragment
         android:id="@+id/cadastro_receita"
-        android:name="br.com.rubiofinancas.presenter.ui.receita.CadastroReceitaFragment"
+        android:name="br.com.rubiofinancas.ui.receita.CadastroReceitaFragment"
         tools:layout="@layout/fragment_cadastro_receita" >
-        <action
-            android:id="@+id/action_cadastro_receita_to_nav_receita"
-            app:destination="@id/nav_receita"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right"
-            />
         <argument
             android:name="receita"
-            app:argType="br.com.rubiofinancas.presenter.ui.receita.ReceitaArgs"
+            app:argType="br.com.rubiofinancas.ui.receita.ReceitaArgs"
             app:nullable="true"
             android:defaultValue="@null" />
         <argument
             android:name="id"
             app:argType="long"
             android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_cadastro_receita_to_nav_receita"
+            app:destination="@id/nav_receita" />
 
     </fragment>
 
 
     <fragment
         android:id="@+id/cadastro_despesa"
-        android:name="br.com.rubiofinancas.presenter.ui.despesa.CadastroDespesaFragment"
+        android:name="br.com.rubiofinancas.ui.despesa.CadastroDespesaFragment"
         android:label="@string/menu_cadastro_despesa"
         tools:layout="@layout/fragment_cadastro_despesa" >
 

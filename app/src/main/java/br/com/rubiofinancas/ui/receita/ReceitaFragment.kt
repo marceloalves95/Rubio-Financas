@@ -1,18 +1,16 @@
-package br.com.rubiofinancas.presenter.ui.receita
+package br.com.rubiofinancas.ui.receita
 
-import android.app.Application
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.rubiofinancas.R
+import br.com.rubiofinancas.adapters.ReceitaAdapter
 import br.com.rubiofinancas.databinding.FragmentReceitaBinding
-import br.com.rubiofinancas.framework.viewmodel.ReceitaViewModel
-import br.com.rubiofinancas.framework.viewmodel.ReceitaViewModelFactory
-import br.com.rubiofinancas.presenter.adapters.ReceitaAdapter
+import br.com.rubiofinancas.viewmodel.ReceitaViewModel
 import com.google.android.material.snackbar.Snackbar
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.time.LocalDate
@@ -27,19 +25,13 @@ class ReceitaFragment : Fragment(){
     var actionMode:ActionMode? = null
     val listarId = mutableListOf<Long>()
 
-    lateinit var application: Application
-    val viewModel by lazy {
-
-        ViewModelProvider(this, ReceitaViewModelFactory(application)).get(ReceitaViewModel::class.java)
-
-    }
+    private val viewModel:ReceitaViewModel by viewModel()
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
-        application = requireActivity().application!!
+    ): View{
         _binding = FragmentReceitaBinding.inflate(inflater, container, false)
         val view = binding.root
 
